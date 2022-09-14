@@ -1,4 +1,5 @@
 import React, { useRef, useCallback } from "react";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 import "./MovieModal.scss";
 
 function MovieModal({
@@ -12,6 +13,9 @@ function MovieModal({
   setModalOpen,
 }) {
   const ref = useRef();
+  useOnClickOutside(ref, () => {
+    setModalOpen(false);
+  });
 
   const forYouPerCent = Math.floor(Math.random() * 100);
   return (

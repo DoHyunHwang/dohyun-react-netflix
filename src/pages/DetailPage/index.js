@@ -6,6 +6,14 @@ export default function DetailPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
 
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(`/movie/${movieId}`);
+      setMovie(request.data);
+    }
+    fetchData();
+  }, [movieId]);
+
   if (!movie) return <div>...loading</div>;
 
   return (
