@@ -4,5 +4,6 @@
 - axios
 - sass
 - styled-components
+- tailwindcss
 - swiper
 
